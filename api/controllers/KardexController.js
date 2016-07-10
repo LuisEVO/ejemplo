@@ -1,6 +1,7 @@
 
 module.exports = {
   listar: function(req, res) {
+    var datos = {};
     Kardex
       .find().populate('idProducto')
       .then(function (registros) {
@@ -33,12 +34,20 @@ module.exports = {
       })
   },
   buscar: function (req, res){
-    var data = {idKardex:req.params.id};
+    var data = {idkardex:req.params.id};
+    var registros = {}
     Kardex
       .find(data)
       .then(function (registro) {
-        res.view("kardex/editar", {registro: registro[0]})
+        registros.registro = registro[0];
+        return Producto.find()
       })
+      .then(function (productos) {
+        registros.productos = productos;
+        console.log(registros)
+        res.view("kardex/editar", {registros: registros})
+      })
+
       .catch(function (error) {
         res.negotiate(error);
       })
@@ -58,7 +67,7 @@ module.exports = {
   formEliminar: function (req, res){
     var data = {idkardex:req.params.id};
     Kardex
-      .find(data)
+      .find(data).populate('idProducto')
       .then(function (registro) {
         console.log(registro)
         res.view("kardex/eliminar", {registro: registro[0]})
@@ -67,6 +76,16 @@ module.exports = {
         res.negotiate(error);
       })
   },
+  formCrear: function (req, res){
+    Producto
+      .find()
+      .then(function (productos) {
+        res.view("kardex/crear", {productos: productos})
+      })
+      .catch(function (error) {
+        res.negotiate(error);
+      })
+  }
 
 
 };

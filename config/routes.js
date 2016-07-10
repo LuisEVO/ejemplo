@@ -71,14 +71,15 @@ module.exports.routes = {
     controller: 'KardexController',
     action : "listar"
   },
+  'get /kardex/crear':{
+    controller: 'KardexController',
+    action : "formCrear"
+  },
   'post /kardex/crear':{
     controller: 'KardexController',
     action : "crear"
   },
-  'get /kardex/crear': {
-    view: 'kardex/crear'
 
-  },
   'post /kardex/eliminar/:id':{
     controller: 'KardexController',
     action : "eliminar"
@@ -94,7 +95,7 @@ module.exports.routes = {
   'get /kardex/form/eliminar/:id':{
     controller: 'KardexController',
     action: "formEliminar"
-  },
+  }
 
 
   /****************************t***********************************************

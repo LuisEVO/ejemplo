@@ -1,6 +1,9 @@
 <form action="/kardex/eliminar/<%= registro.idkardex %>">
-  <h5>¿Quieres Eliminar el Registro?</h5>
-  <p><%if (registro.tipo==0) { %> Ingreso <% } else if (registro.tipo==1) {%> Salida <%}%></p>
+  <h2>¿Quieres Eliminar el Registro?</h2>
+  <p><%if (registro.tipo==0) { %> Ingreso <% } else if (registro.tipo==1) {%> Salida <%}%>
+  <%= registro.cantidad %>
+  <%= registro.idProducto.nombreProducto %>
+  </p>
   <a href="/kardex/listar">Cancelar</a>
   <input type="submit" value="Eliminar">
 </form>

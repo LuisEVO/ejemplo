@@ -1,5 +1,18 @@
-<html>
-<body>
-La ostia
-</body>
-</html>
+<form method="post" action="/kardex/actualizar/<%=registros.registro.idkardex %>">
+  <select name="tipo" id="id_tipo">
+    <% if (registros.registro.tipo == 0) { %>
+    <option value="0" selected>Ingreso</option>
+    <option value="1">Salida</option>
+    <% } else if (registros.registro.tipo == 1) { %>
+    <option value="0">Ingreso</option>
+    <option value="1" selected>Salida</option>
+    <% } %>
+  </select>
+  <input type="number" name="cantidad" value="<%= registros.registro.cantidad %>">
+  <select name="idProducto" id="">
+    <% registros.productos.forEach(function (producto) { %>
+    <option value="<%= producto.idProducto %>" <% if(producto.idProducto==registros.registro.idProducto) { %>selected<% } %>><%= producto.nombreProducto %></option>
+    <% }) %>
+  </select>
+  <input type="submit" value="Guardar">
+</form>
