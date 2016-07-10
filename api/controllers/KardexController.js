@@ -4,7 +4,6 @@ module.exports = {
     Kardex
       .find().populate('idProducto')
       .then(function (registros) {
-        console.log(registros)
         res.view("kardex/listar",{registros:registros});
       })
       .catch(function (error) {
@@ -13,7 +12,6 @@ module.exports = {
   },
   crear: function (req, res) {
     var data  = req.allParams();
-    console.log(data);
     Kardex
       .create(data)
       .then(function (registro) {
@@ -25,7 +23,6 @@ module.exports = {
   },
   eliminar: function (req, res){
     var data  = req.params.id;
-    console.log(data);
     Kardex
       .destroy(data)
       .then(function (registro) {
@@ -59,10 +56,11 @@ module.exports = {
       })
   },
   formEliminar: function (req, res){
-    var data = {idKardex:req.params.id};
+    var data = {idkardex:req.params.id};
     Kardex
       .find(data)
       .then(function (registro) {
+        console.log(registro)
         res.view("kardex/eliminar", {registro: registro[0]})
       })
       .catch(function (error) {

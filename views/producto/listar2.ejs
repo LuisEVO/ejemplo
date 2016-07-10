@@ -1,24 +1,20 @@
-<html>
-<body>
 <a type="button" href="/producto/crear">Insertar</a>
 
-  <table>
-    <tr>
-      <th> Nombre de Producto </th>
-      <th> Precio </th>
-      <th> Stock</th>
-    </tr>
-    <%registros.forEach(function(registro){%>
-    <tr>
-      <td><%=registro.nombreProducto%></td>
-      <td><%=registro.precio%></td>
-      <td><%=registro.stockInicial%></td>
-      <TD><a href = "/producto/form/eliminar/<%=registro.idProducto%>">Eliminar </a></TD>
-      <TD><a href = "/producto/editar/<%=registro.idProducto%>">Buscar </a></TD>
-    </tr>
+<table>
+  <tr>
+    <th> Nombre de Producto </th>
+    <th> Precio </th>
+    <th> Stock</th>
+  </tr>
+  <%registros.forEach(function(registro){%>
+  <tr>
+    <td><%=registro.nombreProducto%></td>
+    <td><%=registro.precio%></td>
+    <td><%=registro.stockInicial%></td>
+    <TD><a href = "/producto/form/eliminar/<%=registro.idProducto%>">Eliminar </a></TD>
+    <TD><a href = "/producto/editar/<%=registro.idProducto%>">Buscar </a></TD>
+  </tr>
 
-    <%})%>
+  <%})%>
 
-  </table>
-</body>
-</html>
+</table>

@@ -13,7 +13,11 @@
     <th>Salida</th>
     <% } %>
     <th><%= registro.cantidad %></th>
-    <th><%= registro.idProducto %></th>
+    <% if(registro.idProducto) { %>
+    <th><%= registro.idProducto.nombreProducto %></th>
+    <th><a href="/kardex/form/eliminar/<%= registro.idProducto.idProducto %>">Eliminar</a></th>
+    <% } %>
+
   </tr>
   <% }) %>
 
