@@ -1,13 +1,72 @@
-<form method="post" action="/kardex/crear">
-  <select name="tipo" id="id_tipo">
-    <option value="0">Ingreso</option>
-    <option value="1">Salida</option>
-  </select>
-  <input type="number" name="cantidad">
-  <select name="idProducto" id="">
-    <% productos.forEach(function (producto) { %>
-    <option value="<%= producto.idProducto %>"> <%= producto.nombreProducto %> </option>
-    <% }) %>
-  </select>
-  <input type="submit" value="Guardar">
-</form>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Proyecto Area 51</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li >
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li class="active">
+        <a href="/kardex/listar">
+          Kardex
+        </a>
+      </li>
+      <li>
+        <a href="/producto/listar">
+          Producto
+        </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+  <form method="post" action="/kardex/crear">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Tipo:</label>
+          <div class="col-md-3">
+            <select class="form-control" name="tipo" id="id_tipo">
+              <option value="0">Ingreso</option>
+              <option value="1">Salida</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Cantidad:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="number" name="cantidad">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Cantidad:</label>
+          <div class="col-md-3">
+            <select class="form-control" name="idProducto" id="">
+              <% productos.forEach(function (producto) { %>
+              <option value="<%= producto.idProducto %>"> <%= producto.nombreProducto %> </option>
+              <% }) %>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <input class="pull-right btn btn-primary" type="submit" value="Guardar">
+      </div>
+    </div>
+  </form>
+</div>

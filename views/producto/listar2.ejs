@@ -1,20 +1,69 @@
-<a type="button" href="/producto/crear">Insertar</a>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Proyecto Area 51</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li >
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li >
+        <a href="/kardex/listar">
+          Kardex
+        </a>
+      </li>
+      <li class="active">
+        <a href="/producto/listar">
+          Producto
+        </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+  <form action="/reporte/producto" method="post">
+    <div class="pull-right">
+      <div class="col-md-5">
+        <input type="date" class="form-control date" name="fechaInicio">
+      </div>
+      <div class="col-md-5">
+        <input type="date" class="form-control date" name="fechaFin">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-sm btn-success" type="submit">Reporte</button>
+      </div>
+    </div>
+  </form>
+  <br>
+  <hr>
+  <a class="btn btn-sm btn-info" href="/producto/crear">Insertar</a>
 
-<table>
-  <tr>
-    <th> Nombre de Producto </th>
-    <th> Precio </th>
-    <th> Stock</th>
-  </tr>
-  <%registros.forEach(function(registro){%>
-  <tr>
-    <td><%=registro.nombreProducto%></td>
-    <td><%=registro.precio%></td>
-    <td><%=registro.stockInicial%></td>
-    <TD><a href = "/producto/form/eliminar/<%=registro.idProducto%>">Eliminar </a></TD>
-    <TD><a href = "/producto/editar/<%=registro.idProducto%>">Buscar </a></TD>
-  </tr>
-
-  <%})%>
-
-</table>
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="text-center"> Nombre de Producto </th>
+      <th class="text-center"> Precio </th>
+      <th class="text-center"> Stock</th>
+      <th class="text-center"> Creado </th>
+      <th class="text-center"> Actualizado </th>
+      <th class="text-center"> Acción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%registros.forEach(function(registro){%>
+    <tr>
+      <td class="text-center"><%=registro.nombreProducto%></td>
+      <td class="text-center"><%=registro.precio%></td>
+      <td class="text-center"><%=registro.stockInicial%></td>
+      <td class="text-center"><%= registro.formatCreate() %></td>
+      <td class="text-center"><%= registro.formatUpdate() %></td>
+      <td class="text-center">
+        <a class="btn btn-sm btn-danger" href="/producto/form/eliminar/<%=registro.idProducto%>">Eliminar </a>
+        <a class="btn btn-sm btn-warning" href="/producto/editar/<%=registro.idProducto%>">Editar </a>
+      </td>
+    </tr>
+    <%})%>
+    </tbody>
+  </table>
+</div>

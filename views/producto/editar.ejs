@@ -1,6 +1,65 @@
-<form method="post" action="/producto/actualizar/ <%=registro.idProducto%>">
-  <input type="text" name="nombreProducto" value="<%=registro.nombreProducto%>"  >
-  <input type="number" name="precio" value="<%=registro.precio%>" >
-  <input type="number" name="stockInicial"  value="<%=registro.stockInicial%>">
-  <input type="submit" value="Actualizar">
-</form>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Proyecto Area 51</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li >
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li >
+        <a href="/kardex/listar">
+          Kardex
+        </a>
+      </li>
+      <li class="active">
+        <a href="/producto/listar">
+          Producto
+        </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+  <form method="post" action="/producto/actualizar/ <%=registro.idProducto%>">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Nombre:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="text" name="nombreProducto" value="<%=registro.nombreProducto%>"  >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Precio:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="number" step="any" name="precio" value="<%=registro.precio%>" >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Stock:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="number" name="stockInicial"  value="<%=registro.stockInicial%>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <input class="pull-right btn btn-primary" type="submit" value="Actualizar">
+      </div>
+    </div>
+  </form>
+</div>

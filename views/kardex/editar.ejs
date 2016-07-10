@@ -1,18 +1,78 @@
-<form method="post" action="/kardex/actualizar/<%=registros.registro.idkardex %>">
-  <select name="tipo" id="id_tipo">
-    <% if (registros.registro.tipo == 0) { %>
-    <option value="0" selected>Ingreso</option>
-    <option value="1">Salida</option>
-    <% } else if (registros.registro.tipo == 1) { %>
-    <option value="0">Ingreso</option>
-    <option value="1" selected>Salida</option>
-    <% } %>
-  </select>
-  <input type="number" name="cantidad" value="<%= registros.registro.cantidad %>">
-  <select name="idProducto" id="">
-    <% registros.productos.forEach(function (producto) { %>
-    <option value="<%= producto.idProducto %>" <% if(producto.idProducto==registros.registro.idProducto) { %>selected<% } %>><%= producto.nombreProducto %></option>
-    <% }) %>
-  </select>
-  <input type="submit" value="Guardar">
-</form>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Proyecto Area 51</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li >
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li class="active">
+        <a href="/kardex/listar">
+          Kardex
+        </a>
+      </li>
+      <li>
+        <a href="/producto/listar">
+          Producto
+        </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+  <form method="post" action="/kardex/actualizar/<%=registros.registro.idkardex %>">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Tipo:</label>
+          <div class="col-md-3">
+            <select class="form-control" name="tipo" id="id_tipo">
+              <% if (registros.registro.tipo == 0) { %>
+              <option value="0" selected>Ingreso</option>
+              <option value="1">Salida</option>
+              <% } else if (registros.registro.tipo == 1) { %>
+              <option value="0">Ingreso</option>
+              <option value="1" selected>Salida</option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Cantidad:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="number" name="cantidad" value="<%= registros.registro.cantidad %>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Cantidad:</label>
+          <div class="col-md-3">
+            <select class="form-control" name="idProducto" id="">
+              <% registros.productos.forEach(function (producto) { %>
+              <option value="<%= producto.idProducto %>" <% if(producto.idProducto==registros.registro.idProducto) { %>selected<% } %>><%= producto.nombreProducto %></option>
+              <% }) %>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <input class="pull-right btn btn-primary" type="submit" value="Guardar">
+      </div>
+    </div>
+  </form>
+</div>

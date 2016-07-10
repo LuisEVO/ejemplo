@@ -1,9 +1,38 @@
-<form action="/kardex/eliminar/<%= registro.idkardex %>">
-  <h2>¿Quieres Eliminar el Registro?</h2>
-  <p><%if (registro.tipo==0) { %> Ingreso <% } else if (registro.tipo==1) {%> Salida <%}%>
-  <%= registro.cantidad %>
-  <%= registro.idProducto.nombreProducto %>
-  </p>
-  <a href="/kardex/listar">Cancelar</a>
-  <input type="submit" value="Eliminar">
-</form>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Proyecto Area 51</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li >
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li class="active">
+        <a href="/kardex/listar">
+          Kardex
+        </a>
+      </li>
+      <li>
+        <a href="/producto/listar">
+          Producto
+        </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+  <form action="/kardex/eliminar/<%= registro.idkardex %>">
+    <div class="alert alert-danger">
+      <h2>¿Quieres Eliminar el Registro?</h2>
+      <h3><%if (registro.tipo==0) { %> Ingreso <% } else if (registro.tipo==1) {%> Salida <%}%>
+        <%= registro.cantidad %>
+        <%= registro.idProducto.nombreProducto %>
+      </h3>
+      <a class="btn btn-default" href="/kardex/listar">Cancelar</a>
+      <input class="btn btn-danger" type="submit" value="Eliminar">
+    </div>
+
+  </form>
+</div>

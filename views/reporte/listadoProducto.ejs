@@ -1,0 +1,19 @@
+<table style="width:700px;font-size:10px">
+  <thead>
+  <tr>
+    <td style="width:100px">Producto</td>
+    <td style="width:200px">Stock</td>
+    <td style="width:400px">Valorización en Soles</td>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% registros.forEach(function(item){ %>
+  <tr>
+    <td style="width:100px"><%= item.nombreProducto %></td>
+    <td style="width:200px"><%= item.stockInicial %></td>
+    <td style="width:400px"><%= (item.stockInicial * item.precio) %></td>
+  </tr>
+  <% }) %>
+  </tbody>
+</table>

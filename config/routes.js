@@ -95,6 +95,11 @@ module.exports.routes = {
   'get /kardex/form/eliminar/:id':{
     controller: 'KardexController',
     action: "formEliminar"
+  },
+
+  'post /reporte/producto': {
+    controller: 'ReporteController',
+    action: "generaReporte"
   }
 
 

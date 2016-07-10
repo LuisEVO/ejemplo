@@ -1,6 +1,65 @@
-<form method="post" action="/producto/crear">
-  <input type="text" name="nombreProducto"  >
-  <input type="text" name="precio"  >
-  <input type="text" name="stockInicial"  >
-  <input type="submit" value="Insertar">
-</form>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Proyecto Area 51</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li >
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li >
+        <a href="/kardex/listar">
+          Kardex
+        </a>
+      </li>
+      <li class="active">
+        <a href="/producto/listar">
+          Producto
+        </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+  <form method="post" action="/producto/crear">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Nombre:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="text" name="nombreProducto"  >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Precio:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="number" step="any" name="precio"  >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label class="col-md-1" for="">Stock:</label>
+          <div class="col-md-3">
+            <input class="form-control" type="number" name="stockInicial"  >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <input class="pull-right btn btn-primary" type="submit" value="Insertar">
+      </div>
+    </div>
+  </form>
+</div>

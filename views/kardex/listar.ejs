@@ -1,25 +1,63 @@
-<table>
-  <tr>
-    <th>Tipo</th>
-    <th>Cantidad</th>
-    <th>Producto</th>
-  </tr>
-  <a href="/kardex/crear">Insertar</a>
-  <% registros.forEach(function (registro) { %>
-  <tr>
-    <% if(registro.tipo == 0 ) { %>
-    <th>Ingreso</th>
-    <% } else if(registro.tipo == 1 ) { %>
-    <th>Salida</th>
-    <% } %>
-    <th><%= registro.cantidad %></th>
-    <% if(registro.idProducto) { %>
-    <th><%= registro.idProducto.nombreProducto %></th>
-    <th><a href="/kardex/form/eliminar/<%= registro.idkardex %>">Eliminar</a></th>
-    <th><a href="/kardex/editar/<%= registro.idkardex %>">Editar</a></th>
-    <% } %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Proyecto Area 51</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li >
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li class="active">
+        <a href="/kardex/listar">
+          Kardex
+        </a>
+      </li>
+      <li>
+        <a href="/producto/listar">
+          Producto
+        </a></li>
+    </ul>
+  </div>
+</nav>
+<div class="col-md-12">
+  <a class="btn btn-sm btn-info" href="/kardex/crear">Insertar</a>
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="text-center">Tipo</th>
+      <th class="text-center">Cantidad</th>
+      <th class="text-center">Producto</th>
+      <th class="text-center">Creado</th>
+      <th class="text-center">Actualizado</th>
+      <th class="text-center">Acción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% registros.forEach(function (registro) { %>
+    <tr>
+      <th class="text-center" >
+        <% if(registro.tipo == 0 ) { %>
+        Ingreso
+        <% } else if(registro.tipo == 1 ) { %>
+        Salida
+        <% } %>
+      </th>
+      <th class="text-center"><%= registro.cantidad %></th>
+      <% if(registro.idProducto) { %>
+      <th class="text-center"><%= registro.idProducto.nombreProducto %></th>
 
-  </tr>
-  <% }) %>
+      <td class="text-center"><%= registro.formatCreate() %></td>
+      <td class="text-center"><%= registro.formatUpdate() %></td>
+      <th class="text-center">
+        <a class="btn btn-sm btn-danger" href="/kardex/form/eliminar/<%= registro.idkardex %>">Eliminar</a>
+        <a class="btn btn-sm btn-warning" href="/kardex/editar/<%= registro.idkardex %>">Editar</a>
+      </th>
+      <% } %>
+    </tr>
+    <% }) %>
 
-</table>
+    </tbody>
+  </table>
+</div>
