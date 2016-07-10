@@ -1,0 +1,10 @@
+<html>
+<body>
+<form action="/producto/eliminar/<%= registro.idProducto%>">
+  <h5>¿Quieres Eliminar el Registro?</h5>
+  <p><%= registro.nombreProducto %></p>
+  <a href="/producto/listar">Cancelar</a>
+  <input type="submit" value="Eliminar">
+</form>
+</body>
+</html>

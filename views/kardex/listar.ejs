@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th>Cantidad</th>
+    <th>Producto</th>
+  </tr>
+  <a href="/kardex/crear">Insertar</a>
+  <% registros.forEach(function (registro) { %>
+  <tr>
+    <% if(registro.tipo == 0 ) { %>
+    <th>Ingreso</th>
+    <% } else if(registro.tipo == 1 ) { %>
+    <th>Salida</th>
+    <% } %>
+    <th><%= registro.cantidad %></th>
+    <th><%= registro.idProducto %></th>
+  </tr>
+  <% }) %>
+
+</table>
